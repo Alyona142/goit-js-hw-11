@@ -68,7 +68,7 @@ input {
   width: 370px;
   padding: 10px 5px;
   float: left;
-  color: #ccc;
+  color: #080808;
   border: 0;
   background: transparent;
   border-radius: 4px 0 0 4px;
@@ -221,8 +221,7 @@ button:focus {
   animation-timing-function: linear;
 }
 
-@keyframes l12 {
-  100% {
-    transform: rotate(0.5turn);
-  }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
