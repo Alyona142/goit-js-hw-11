@@ -6,7 +6,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-export function renderGallery(data, tagToInsert) {
+export function renderGallery(data, gallery) {
   gallery.innerHTML = createGalleryMarkup(data);
   lightbox.refresh();
 }
