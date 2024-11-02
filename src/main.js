@@ -1,6 +1,7 @@
 import { fetchImages } from './js/pixabay-api.js';
 import { renderGallery } from './js/render-functions.js';
-import 'simplelightbox/dist/simple-lightbox.css';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import 'izitoast/dist/css/iziToast.css';
 
 const API_KEY = '46806668-35f52dba5a140225900df36e0';
@@ -34,7 +35,7 @@ searchForm.addEventListener('submit', (event) => {
     .then(images => {
 
       if (Array.isArray(images) && images.length > 0) {
-        renderGallery(gallery, images);
+        renderGallery(images, gallery);
         lightbox.refresh();
       } else {
         console.warn('Немає зображень для цього запиту');
