@@ -11,12 +11,12 @@ export function renderGallery(images, gallery) {
   lightbox.refresh();
 }
 function createGalleryMarkup(images) {
-  if (!images.hits || !Array.isArray(images.hits)) {
+  if (!images || !Array.isArray(images)) {
     console.error("Invalid data format:", images);
     return '';
   }
 
-  return images.hits
+  return images
     .map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
       <li class="gallery-item hvr-grow">
         <a class="gallery-link" href="${largeImageURL}">
