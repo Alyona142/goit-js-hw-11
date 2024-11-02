@@ -6,13 +6,17 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-export function renderGallery(data, gallery) {
-  gallery.innerHTML = createGalleryMarkup(data);
+export function renderGallery(images, gallery) {
+  gallery.innerHTML = createGalleryMarkup(images);
   lightbox.refresh();
 }
+function createGalleryMarkup(images) {
+  if (!images.hits || !Array.isArray(images.hits)) {
+    console.error("Invalid data format:", images);
+    return '';
+  }
 
-function createGalleryMarkup(data) {
-  return data.hits
+  return images.hits
     .map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
       <li class="gallery-item hvr-grow">
         <a class="gallery-link" href="${largeImageURL}">
