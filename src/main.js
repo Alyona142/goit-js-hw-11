@@ -36,7 +36,6 @@ searchForm.addEventListener('submit', (event) => {
 
       if (Array.isArray(images) && images.length > 0) {
         renderGallery(images, gallery);
-        lightbox.refresh();
       } else {
         console.warn('Немає зображень для цього запиту');
         iziToast.info({ title: 'Info', message: 'No images found for your search query.' });
